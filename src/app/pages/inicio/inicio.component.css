@@ -1,0 +1,13 @@
+img{
+  height: 300px;
+  width: 300px;
+}
+button{
+  margin: 10px;
+}
+*{
+  background: pink;
+}
+h1{
+  text-align: center;
+}
