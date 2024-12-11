@@ -1,5 +1,8 @@
-<h1 class="text-center">FINAL SPACE API</h1>
 
+<header>
+  <button [routerLink]="'inicio'" > < Pa atras</button>
+  <h1 class="text-center">FINAL SPACE API</h1>
+</header>
 @defer (when apiData){
   <div class="row">
     <div class="col-12 my-2">
@@ -18,9 +21,7 @@
 
           <div class="avatar-container mt-3">
             <div class="img-container">
-              <button [routerLink]="['/final-space-details', char.id]" >
                 <img src="{{ char.img_url }}" alt="Imagen de {{ char.name }}" class="img-fluid my-img">
-              </button>
             </div>
           </div>
 
@@ -50,3 +51,4 @@
     </div>
   </div>
 }
+<app-bottom-nav></app-bottom-nav>

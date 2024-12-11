@@ -1,1 +1,42 @@
-<p>monster-hunter works!</p>
+<header class="header">
+  <button [routerLink]="'inicio'"> < Pa atrás</button>
+  <h1 class="text-center">MONSTER HUNTER API</h1>
+</header>
+
+@defer (when apiData) {
+  <div class="row">
+    <div class="col-12 my-2">
+    </div>
+
+    @for (weapon of apiData; track weapon.id) {
+      <div class="col-xl-3 col-lg-4 col-sm-6 my-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <h5>{{ weapon.name }}</h5>
+            </div>
+          </div>
+
+          <div class="avatar-container">
+            <img src="{{ weapon.assets.image }}" alt="Imagen de {{ weapon.name }}" class="img-fluid">
+          </div>
+
+          <div class="card-body">
+            <p><strong>Ataque: </strong><span>{{ weapon.attack.raw }}</span></p>
+            <p><strong>Tipo de daño: </strong><span>{{ weapon.damageType || 'Desconocida' }}</span></p>
+            <p><strong>Rareza: </strong><span>{{ weapon.rarity }}</span></p>
+            <p><strong>Tipo: </strong><span>{{ weapon.type }}</span></p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}
+
+@placeholder (minimum 500ms) {
+  <div class="loading-container">
+    <div class="spinner"></div>
+    <p>Cargando...</p>
+  </div>
+}
+<app-bottom-nav></app-bottom-nav>

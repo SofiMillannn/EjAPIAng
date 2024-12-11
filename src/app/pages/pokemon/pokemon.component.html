@@ -1,1 +1,43 @@
-<p>pokemon works!</p>
+<header class="header">
+  <button [routerLink]="'inicio'"> < Pa atrás</button>
+  <h1 class="text-center">POKEMON API</h1>
+</header>
+
+@defer (when apiData) {
+  <div class="row">
+    <div class="col-12 my-2">
+    </div>
+
+    @for (pokemon of apiData.data; track pokemon.id) {
+      <div class="col-xl-3 col-lg-4 col-sm-6 my-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <h5>{{ pokemon.name }}</h5>
+            </div>
+          </div>
+
+          <div class="avatar-container">
+            <img src="{{ pokemon.images.large }}" alt="Imagen de {{ pokemon.name }}" class="img-fluid">
+          </div>
+
+          <div class="card-body">
+            <p><strong>Tipos: </strong><span>{{ pokemon.types }}</span></p>
+            <p><strong>Evoluciona de: </strong><span>{{ pokemon.evolvesFrom }}</span></p>
+            <p><strong>Supertipo: </strong><span>{{ pokemon.supertype }}</span></p>
+            <p><strong>Vida: </strong><span>{{ pokemon.hp }}</span></p>
+            <p><strong>Rareza: </strong><span>{{ pokemon.rarity || "desconocida" }}</span></p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}
+
+@placeholder (minimum 500ms) {
+  <div class="loading-container">
+    <div class="spinner"></div>
+    <p>Cargando...</p>
+  </div>
+}
+<app-bottom-nav></app-bottom-nav>
